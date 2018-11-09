@@ -1,0 +1,58 @@
+swagger: "2.0"
+
+info:
+  version 1.0.0
+  title: Ping Pong
+  description It pings and it pongs
+basepath: /hello
+paths: {}
+  /ping:
+    post:
+      description: Add a ping
+      operationId: addPing
+      parameters:
+      - name: ping
+        in: body
+        description: a new ping to pong
+        schema:
+          $ref: '#definitions/Ping'
+    responses:
+      '200':
+        description: Got the ping
+
+  /count:
+    get:
+      description: Returns the number of pings so far including this one
+      operationId: returnPings
+      parameters:
+      - name: count
+        in: query
+        description: how many pings to add
+        required: false
+        type: integer
+        format: int32
+    responses:
+      '200':
+        description: A count of pings
+      schema:
+        type: integer
+        format: int32
+
+
+definitions:
+  Ping:
+    type: object
+    properties:
+      message:
+        type: string
+        description: A message to log
+      value:
+        type: integer
+        description: How many pings this is worth
+
+# Mistakes I made:
+# not putting colons after the variables
+# indentation
+# client: https://github.com/kubernetes-client/python/issues/558
+# you can't specify a server at runtime? Are you shitting me?
+# Had to edit configuration.py and edit "self.host"
