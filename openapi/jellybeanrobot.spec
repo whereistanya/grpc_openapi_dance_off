@@ -1,17 +1,14 @@
-# Doesn't currently work...
-# https://editor.swagger.io/?_ga=2.57406314.1531698286.1542065711-1861744499.1542065711
-
 openapi: "3.0.0"
+
 
 info:
   version: 1.0.0
   title: Jellybean Robot
   description: Jellybean loving robot
-  
+
 servers:
   - url: 'http://localhost:8080'
     description: The server where the robot lives
-  
 
 paths:
   /give:
@@ -22,17 +19,16 @@ paths:
         content:
           application/json:
             schema:
-             $ref: "definitions/Jellybeans"
+             $ref: "#/components/schemas/Jellybeans"
       responses:
         "200":
           description: reply from the robot
           content:
             application/json:
               schema:
-                type: object
-                $ref: "definitions/Reply"
+                $ref: "#/components/schemas/Reply"
 
-components:  
+components:
   schemas:
     Jellybeans:
       type: object
