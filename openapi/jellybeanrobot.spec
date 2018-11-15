@@ -37,7 +37,7 @@ components:
       properties:
         count:
           type: integer
-          description: how many lollipops
+          description: how many beans
         message:
           type: string
           description: A message for the robot.
@@ -52,3 +52,6 @@ components:
         message:
           type: string
           description: How the robot feels.
+
+# Mistakes I made:
+# oh my god, yaml indentation
